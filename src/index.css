@@ -13,3 +13,28 @@
 body{
     overflow-x: hidden;
 }
+
+
+.moveX{
+    animation-name: moveAnimation;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.moveLink{
+    opacity: 0;
+    transition: cubic-bezier(0.6, 0.04, 0.4, 0.96);
+}
+
+.link:hover .moveLink{
+    opacity: 1;
+}
+@keyframes moveAnimation{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
