@@ -75,7 +75,7 @@
 
 
 // src/components/common/Stair.jsx
-import React, { useRef, useLayoutEffect } from "react";
+import  { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { useLocation } from "react-router-dom";
 

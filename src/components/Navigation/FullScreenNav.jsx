@@ -1,9 +1,48 @@
-import React from 'react'
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import  { useRef } from "react";
+
+
 
 const FullScreenNav = () => {
+
+      const fullNavLinkRef = useRef(null);
+
+      useGSAP(function(){
+        const tl = gsap.timeline();
+        tl.from('.stairing' , {
+            delay: 0.13,
+            height: 0,
+            stagger: {
+                amount: -0.2,
+            }
+        })
+        tl.from(fullNavLinkRef.current,{
+            opacity: 0,
+        })
+        tl.from('.link', {
+            opacity: 0,
+            rotateX: 90,
+            stagger: {
+                amount: 0.2,
+            }
+        })
+      })
+
+
   return (
-    <div className='h-screen w-full  overflow-hidden absolute text-white bg-black'>
-        <div className='flex w-full justify-between items-start'>
+    <div className='h-screen w-full hidden overflow-hidden absolute text-white bg-black'>
+        <div className='h-screen w-full fixed'>
+             <div className="h-full w-full flex">
+          <div className="stairing h-full w-1/5 bg-red-900"></div>
+          <div className="stairing h-full w-1/5 bg-red-900"></div>
+          <div className="stairing h-full w-1/5 bg-red-900"></div>
+          <div className="stairing h-full w-1/5 bg-red-900"></div>
+          <div className="stairing h-full w-1/5 bg-red-900"></div>
+        </div>
+        </div>
+       <div ref={fullNavLinkRef} className='relative'>
+                <div className='flex w-full justify-between items-start'>
 
                   <div className="p-2">
         <div className="w-30">
@@ -20,13 +59,13 @@ const FullScreenNav = () => {
         </svg>
       </div>
       </div>
-      <div className='h-30 w-30 relative'>
+      <div className='h-30 w-30 relative cursor-pointer'>
         <div className='h-40 w-1 -rotate-45 origin-top absolute bg-emerald-500'></div>
         <div className='h-40 w-1 right-0 rotate-45 origin-top absolute bg-emerald-500'></div>
       </div>
         </div>
       <div className='py-26'>
-        <div className='link relative border-t-1 border-white'>
+        <div className='link origin-top relative border-t-1 border-white'>
         <h1 className='font-[font2] text-[7vw] leading-28 uppercase text-center'>WORK</h1>
         <div className='moveLink absolute flex top-0 text-black bg-emerald-500'>
             <div className='moveX flex items-center gap-7'>
@@ -44,7 +83,7 @@ const FullScreenNav = () => {
         </div>
         </div>
 
-         <div className='link relative border-t-1 border-white'>
+         <div className='link origin-top relative border-t-1 border-white'>
         <h1 className='font-[font2] text-[7vw] leading-28 uppercase text-center'>Agency</h1>
             <div className='moveLink absolute flex top-0 text-black bg-emerald-500'>
             <div className='moveX flex items-center gap-7'>
@@ -62,7 +101,7 @@ const FullScreenNav = () => {
         </div>
         </div> 
 
-         <div className='link relative border-t-1 border-white'>
+         <div className='link origin-top relative border-t-1 border-white'>
         <h1 className='font-[font2] text-[7vw] leading-28 uppercase text-center'>Contact</h1>
               <div className='moveLink absolute flex top-0 text-black bg-emerald-500'>
             <div className='moveX flex items-center gap-7'>
@@ -80,7 +119,7 @@ const FullScreenNav = () => {
         </div>
         </div>
 
-         <div className='link relative border-y-1 border-white'>
+         <div className='link origin-top relative border-y-1 border-white'>
         <h1 className='font-[font2] text-[7vw] leading-28 uppercase text-center'>Blog</h1>
                   <div className='moveLink absolute flex top-0 text-black bg-emerald-500'>
             <div className='moveX flex items-center gap-7'>
@@ -99,6 +138,7 @@ const FullScreenNav = () => {
         </div> 
 
       </div>
+       </div>
     </div>
   )
 }
