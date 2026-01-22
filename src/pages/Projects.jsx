@@ -61,20 +61,29 @@ useGSAP(() => {
     gsap.fromTo(
       card,
       {
-        height: 90,
+        height: 100,
         y: 40,
+        stagger: {
+          amount: 0.5,
+        }
       },
       {
         height: 520,
         y: 0,
         ease: "none",
         scrollTrigger: {
-          trigger: card,
-          start: "top bottom",
-          end: "top center",
+          trigger: '.parent',
+          start: "top 100%",
+          end: "top -150%",
           scrub: true,
           // markers: true,
         },
+        snap: {
+			snapTo: 'labels', // snap to the closest label in the timeline
+			duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+			delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+			ease: 'power1.inOut' // the ease of the snap animation ("power3" by default)
+		}
       }
     );
 
@@ -98,13 +107,13 @@ useGSAP(() => {
   return (
     <div className="p-5">
       <div className='pt-70'>
-        <h2 className='font-[font2] text-black text-[12vw] uppercase'>Work</h2>
+        <h2 className='font-[font2] text-black lg:text-[12vw] text-[15vw] uppercase'>Work</h2>
       </div>
 
-      <div className="parent -mt-14 transition-all">
+      <div className="parent lg:-mt-14 transition-all">
 
        {projects.map((elem,idx)=>{
-         return   <div className="hero will-change-transform overflow-hidden  w-full h-[600px] flex gap-5 mb-3 ">
+         return   <div className="hero will-change-transform overflow-hidden  w-full lg:h-[700px] flex lg:flex-row flex-col gap-5 mb-3 ">
           <WorkCard key={idx} image1={elem.image1} image2={elem.image2} />
           </div>
        })}

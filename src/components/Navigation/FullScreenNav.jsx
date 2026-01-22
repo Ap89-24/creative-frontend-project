@@ -87,7 +87,7 @@ const FullScreenNav = () => {
        <div ref={fullNavLinkRef} className='relative'>
                 <div className='navlink flex w-full justify-between items-start'>
 
-                  <div className="p-2">
+     <div className="p-2">
         <div className="w-30">
         <svg
           className="w-full"
@@ -110,7 +110,7 @@ const FullScreenNav = () => {
         <div className='h-40 w-1 right-0 rotate-45 origin-top absolute bg-emerald-500'></div>
       </div>
         </div>
-      <div className='py-26'>
+      <div className='py-26  mt-60 lg:mt-0 sm:leading-tight'>
         <div className='link origin-top relative border-t-1 border-white'>
         <h1 className='font-[font2] text-[7vw] leading-28 uppercase text-center'>WORK</h1>
         <div className='moveLink absolute flex top-0 text-black bg-emerald-500'>

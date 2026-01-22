@@ -9,8 +9,8 @@ const Navbar = () => {
 
   return (
     <div className="z-4 flex fixed top-0 w-full items-start justify-between">
-      <div className="p-2">
-        <div className="w-30">
+      <div className="lg:p-2 sm:p-3">
+        <div className="lg:w-30 sm:w-20">
         <svg
           className="w-full"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,9 +38,9 @@ const Navbar = () => {
         navIRef.current.style.color = 'white'
       }}
 
-      className="bg-black h-15 w-50 relative">
+      className="bg-black lg:h-15 lg:w-50 sm:h-12 sm:w-80 relative">
         <div ref={navGreenRef} className="bg-emerald-500 transition-all top-0 h-0 absolute w-full">
-          <i ref={navIRef} className="ri-align-justify text-white absolute top-4 right-10 text-2xl transition-all "></i>
+          <i ref={navIRef} className="ri-align-justify text-white absolute lg:top-4 sm:top-2 right-10 lg:text-2xl sm:text-xl transition-all "></i>
         </div>
         <div className=""></div>
       </div>
